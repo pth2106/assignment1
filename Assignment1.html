@@ -18,19 +18,67 @@
     <body>
          <!-- <p>Me</p> --> 
  
-        <svg 
+        <!-- <!-- <svg 
 
             width = "1000" height = "1000">
             
-            <circle cx = "500" cy = "500" r = "100" fill = "indianred">
+            <!-- <rect x = 0 y = 0 width = "500" height = "1000" fill = "rgb(0,205,0)">
+            <rect/>  
+            
+            <circle cx = "250" cy = "500" r = "100" fill = "#99CC99" stroke-width = "30" style = "stroke: #99CCFF"> </circle>
 
-            <text x="500" y="400" font = "New Courier" font-size = "100" fill = "black"> Me
+            <circle cx = "750" cy = "500" r = "100" fill = "#99CC99" stroke-width = "30" style = "stroke: FFCC00"> </circle>
+
+            <text x="250" y="525" font = " Andale Mono" font-style = "italic" font-size = "100" fill = "rgb(205,205,205)" style = "text-anchor: middle;" > Me
             </text>
 
-        </svg>
+            <text x="750" y="525" font = " Andale Mono" font-style = "italic" font-size = "100" fill = "rgb(205,205,205)" style = "text-anchor: middle;" > You
+            </text>
+            
+
+        </svg> -->
 
         <script type="text/javascript">
-            // Your beautiful D3 code will go here
+
+        var svg = d3.select("body")
+        .append("svg")
+        .attr("width", 800)
+        .attr("height", 800);
+
+        var dataSet = [34,68];
+
+        var circles = svg.selectAll("circle")
+        .data(dataSet)
+        .enter()
+        .append("circle")
+        .attr("stroke", "blue")
+        .attr("stroke-width", 30)
+        .attr("cx", function(d){
+
+            return d;
+
+        })
+
+        .attr("cy", 400)
+
+        .attr("r", 20)
+
+        .on("click", function() {
+
+            d3.select(this)
+            .transition()
+            .duration(1000)
+            .attr("stroke-width", 0)
+        } )
+
+
+
+
+        
+
+
+
+            // our beautiful D3 code will go here
         </script>
     </body>
 </html>
